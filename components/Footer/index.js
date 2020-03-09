@@ -62,13 +62,6 @@ const Logo = styled.img`
     
 `;
 
-const Link = styled.a`
-     font-weight: 700 !important;
-     text-decoration: underline !important;
-     :hover {
-         cursor: pointer;
-     }
-`;
 
 
 

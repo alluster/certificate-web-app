@@ -6,7 +6,7 @@ import { useAuth } from 'use-auth0-hooks';
 const Provider = ({children}) => {
 
 
-    const { isAuthenticated, isLoading, login, logout } = useAuth();
+    const { isAuthenticated, login, logout } = useAuth();
     const [auth, setAuth] = useState(false)
  
     const AuthenticateUser = () => {

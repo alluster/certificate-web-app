@@ -1,11 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import Gx from '@tgrx/gx';
 import Container from '../Container';
 import PropTypes from 'prop-types';
 import { Links } from '../links';
-import { AppContext } from '../../context/Context';
 import { useAuth } from 'use-auth0-hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'

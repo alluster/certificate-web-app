@@ -8,6 +8,7 @@ module.exports = {
         "plugin:react/recommended"
     ],
     "globals": {
+        "process": true,
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },

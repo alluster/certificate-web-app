@@ -69,7 +69,7 @@ const TopNavigation = ({ className }) => {
             isAuthenticated ? (
                 <>   
                     <Gx col={2}>
-                        <LinkText onClick={() => logout({ returnTo: 'http://localhost:3000' })}>Log out</LinkText>
+                        <LinkText onClick={() => logout({ returnTo: process.env.AUTHO_RETURN_URL })}>Log out</LinkText>
                     </Gx>
                     <Gx col={1}>
                         <Link href='/profile'>

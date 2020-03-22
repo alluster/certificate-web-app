@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import Gx from '@tgrx/gx';
 import Container from '../Container';
 import PropTypes from 'prop-types';
 import { Links } from '../links';
+import { AppContext } from '../../context/Context';
+import { useAuth } from 'use-auth0-hooks';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
+
 const LOGO_IMG = '/logo.png';
 
 const LinkText = styled.h3`
@@ -35,6 +40,8 @@ const Logo = styled.img `
 
 
 const TopNavigation = ({ className }) => {
+    const { isAuthenticated, isLoading, login, logout } = useAuth();
+
     return(
         <Container >
             <NavContainer className={className} >
@@ -46,9 +53,8 @@ const TopNavigation = ({ className }) => {
                         </a>
                     </Link>                
                 </Gx>
-                <Gx col={3}>
-
-                </Gx>
+        
+            
             { Links.map((item, i) => {
                 return (
                     <Gx key={i} col={2}>
@@ -60,13 +66,38 @@ const TopNavigation = ({ className }) => {
                     </Gx>
                 )
             })}
+                    {!isLoading && (
+            isAuthenticated ? (
+                <>   
+                    <Gx col={2}>
+                        <LinkText onClick={() => logout({ returnTo: 'http://localhost:3000' })}>Log out</LinkText>
+                    </Gx>
+                    <Gx col={1}>
+                        <Link href='/profile'>
+                            <a>
+                                <LinkText>
+                                    <FontAwesomeIcon icon={faUser} />
+                                </LinkText>
+                            </a>
+
+                        </Link>
+                    </Gx>
+              </>
+            ) : (
+              <Gx col={2}>
+                <LinkText onClick={() => login({ appState: { returnTo: process.env.AUTHO_REDIRECT_URI + '/profile' } })}>
+                  Log in
+                </LinkText>
+              </Gx>
+            )
+          )}
             </NavContainer>        
         </Container>
             
     );
 };
 TopNavigation.propTypes = {
-    className: PropTypes.object
+    className: PropTypes.string
  };
 
 export default TopNavigation;

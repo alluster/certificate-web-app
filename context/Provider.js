@@ -1,37 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { AppContext } from './Context';
 import PropTypes from 'prop-types';
-import axios from 'axios';
+import { useAuth } from 'use-auth0-hooks';
 
 const Provider = ({children}) => {
 
-    const [submit, setSubmit] = useState(false)
-    const [inputValue, setInput] = useState("");
-    const [email, setEmail] = useState("");
 
-    const EmailToUser = () => {
-        axios.post('/sendEmail',
-    {
-        email: inputValue
-    },  
-    setSubmit(true),
-    setInput("")
-)       }
-
+    const { isAuthenticated, isLoading, login, logout } = useAuth();
+    const [auth, setAuth] = useState(false)
+ 
+    const AuthenticateUser = () => {
+        if(isAuthenticated === true)
+            setAuth(true)
+            
+    }
 
 	useEffect(() => {
-        
+        AuthenticateUser()
+        console.log(isAuthenticated)
         }, []);
         return (
             <AppContext.Provider 
                 value={{
-                    submit,
-                    setSubmit,
-                    inputValue,
-                    setInput,
-                    setEmail,
-                    email,
-                    EmailToUser
+                    logout,
+                    isAuthenticated,
+                    login,
+                    auth
                 }} 
             >
                 {children}
@@ -42,4 +36,4 @@ const Provider = ({children}) => {
         children: PropTypes.object
      };
 
-export default Provider;
+     export default Provider;

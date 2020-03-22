@@ -118,7 +118,7 @@ const BurgerMenu = ({className} ) => {
     );
 };
 BurgerMenu.propTypes = {
-    className: PropTypes.object
+    className: PropTypes.string
  };
 
 export default BurgerMenu;

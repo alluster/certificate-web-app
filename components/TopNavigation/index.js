@@ -84,7 +84,7 @@ const TopNavigation = ({ className }) => {
               </>
             ) : (
               <Gx col={2}>
-                <LinkText onClick={() => login({ appState: { returnTo: process.env.AUTHO_REDIRECT_URI + '/profile' } })}>
+                <LinkText onClick={() => login({ appState: { returnTo: process.env.DOMAIN + '/profile' } })}>
                   Log in
                 </LinkText>
               </Gx>

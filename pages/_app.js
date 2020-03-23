@@ -8,9 +8,10 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
     return (
 		<Auth0Provider
-			domain={JSON.stringify(process.env.AUTHO_DOMAIN)}
-			clientId={JSON.stringify(process.env.AUTHO_CLIENT_ID)}
-			redirectUri={JSON.stringify(process.env.AUTHO_REDIRECT_URI)}>
+		domain={`${process.env.AUTHO_DOMAIN}`}
+		clientId={`${process.env.AUTHO_CLIENT_ID}`}
+		redirectUri={`${process.env.AUTHO_REDIRECT_URI}`}
+		>
 			<Provider>
 				<Component {...pageProps} />
 			</Provider>

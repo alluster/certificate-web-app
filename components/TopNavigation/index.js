@@ -69,7 +69,7 @@ const TopNavigation = ({ className }) => {
             isAuthenticated ? (
                 <>   
                     <Gx col={2}>
-                        <LinkText onClick={() => logout({ returnTo: process.env.AUTHO_RETURN_URL })}>Log out</LinkText>
+                        <LinkText onClick={() => logout({ returnTo: `${process.env.AUTHO_RETURN_URL}` })}>Log out</LinkText>
                     </Gx>
                     <Gx col={1}>
                         <Link href='/profile'>
@@ -84,7 +84,7 @@ const TopNavigation = ({ className }) => {
               </>
             ) : (
               <Gx col={2}>
-                <LinkText onClick={() => login({ appState: { returnTo: process.env.AUTHO_REDIRECT_URI + '/profile' } })}>
+                <LinkText onClick={() => login({ appState: { returnTo: `${process.env.AUTHO_REDIRECT_URI}` + '/profile' } })}>
                   Log in
                 </LinkText>
               </Gx>

@@ -15,7 +15,7 @@ const ImageContainer = styled.div`
 const Title = styled.h1`
     text-align: center;
     color: white;
-    font-weight: 400;
+    font-weight: 600;
     margin-top: 50px;
     font-size:  ${props => props.theme.fontSize.h3}
     @media (max-width: ${props => props.theme.screenSize.tablet}) {

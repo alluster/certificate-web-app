@@ -9,7 +9,7 @@ import { useAuth } from 'use-auth0-hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 
-const LOGO_IMG = '/logo.png';
+const LOGO_IMG = '/logo.svg';
 
 const LinkText = styled.h3`
     font-weight: 400;

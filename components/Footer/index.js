@@ -73,7 +73,7 @@ const Footer = () => {
                 <Gx col={6}>
                     <Column>
                         <ColumnHigh>
-                            <Logo src="/logo.png" />
+                            <Logo src="/logo.svg" />
                             <h4>info@certificate.com</h4>
                             {/* <span>Anna tukesi projektille. <Link href="https://shop.spreadshirt.fi/personaldatafi/">Osta huppari verkkokaupasta</Link></span> */}
                         </ColumnHigh>

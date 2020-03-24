@@ -4,7 +4,7 @@ import Container from '../Container';
 import PropTypes from 'prop-types';
 
 const ImageContainer = styled.div`
-    max-width: 400px;
+    max-width: 800px;
     margin: auto;
     @media (max-width: ${props => props.theme.screenSize.tablet}) {
         max-width: 100%;

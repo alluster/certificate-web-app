@@ -19,7 +19,40 @@ const GlobalStyle = createGlobalStyle`
         font-family: "Montserrat", Arial, sans-serif;
     }
     h1 {
-        margin: 0
+        margin-top: 0.3em; 
+        margin-bottom: 0.3em;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    h2 {
+        margin-top: 0.3em; 
+        margin-bottom: 0.3em;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    h3 {
+        margin-top: 0.3em; 
+        margin-bottom: 0.3em;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    h4 {
+        margin-top: 0.3em; 
+        margin-bottom: 0.3em;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    h5 {
+        margin-top: 0.3em; 
+        margin-bottom: 0.3em;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    h6 {
+        margin-top: 0.3em; 
+        margin-bottom: 0.3em;
+        margin-left: 0;
+        margin-right: 0;
     }
     img {
         max-width: 100%;

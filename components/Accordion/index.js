@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link';
 import Gx from '@tgrx/gx';
 
@@ -20,7 +20,7 @@ const AccordionContainer = styled.div `
 		`;
 	}};
 	
-    `;
+`;
     
 const AccordionContent = styled.div `
 	background-color: white;
@@ -30,7 +30,7 @@ const AccordionContent = styled.div `
 			display: block;
 		`;
 	}};
-	`;
+`;
 
 
 const Content = styled.div`
@@ -41,21 +41,21 @@ const LogoImage = styled.img `
     max-height: 40px;
     object-fit: cover;
     padding: 10px;
-`
+`;
 const Label = styled.h5`
     font-size: 7px;
     font-weight: 400;
-`
+`;
 const Mark = styled.h4`
     font-size: 12px;
     font-weight: 600;
-`
+`;
 
 
-const imageFingerPrint = "finger-print.svg"
-const imageTwitter = "https://seeklogo.com/images/T/twitter-2012-positive-logo-916EDF1309-seeklogo.com.png"
+// const imageFingerPrint = "finger-print.svg"
+// const imageTwitter = "https://seeklogo.com/images/T/twitter-2012-positive-logo-916EDF1309-seeklogo.com.png"
 const imageHs = "https://www.hs.fi/assets/images/og-hs-1920px.5fdbe1eeac47f127.png"
-const Accordion = (data) => {
+const Accordion = () => {
     const [toggle, setToggle]  = useState(false)
   	return (
 		<AccordionContainer onClick={ () => setToggle(!toggle)} open={toggle}>
@@ -85,9 +85,7 @@ const Accordion = (data) => {
                         <Mark>1.3.2020</Mark>
                     </Gx>
                     <Gx col={3} >
-                        <Label>
-                            Link to content
-                        </Label>
+                        <Label>Link to content</Label>
                         <Link href="/">
                             <a>
                                 <Mark>12345678</Mark>
@@ -98,7 +96,7 @@ const Accordion = (data) => {
             </AccordionContent>
 		</AccordionContainer>
 
-  )
+    )
 }
 
 

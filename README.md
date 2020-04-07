@@ -13,7 +13,7 @@ npm install
 ```bash
 npm run dev
 ``` 
-![](https://img.shields.io/static/v1?label=CI&message=Travis&color=<COLOR>)
+[![Travis build](https://travis-ci.com/alluster/certificate.svg?branch=master)]
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

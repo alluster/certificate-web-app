@@ -9,6 +9,7 @@ connect-shopify.js
 /docs/**
 /jsdoc/**
 /templates/**
+/tests/**
 /tests/bench/**
 /tests/fixtures/**
 /tests/performance/**

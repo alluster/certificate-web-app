@@ -9,7 +9,10 @@
     "start": "NODE_ENV=production node server.js",
     "lint": "eslint .",
     "postinstall": "npm run build",
-    "lint-fix": "eslint --fix ."
+	"lint-fix": "eslint --fix .",
+	"test": "jest",
+	"test:coverage": "jest --coverage",
+	"test:coverall": "jest --coverage && coveralls < coverage/lcov.info"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
@@ -47,10 +50,12 @@
   "devDependencies": {
     "babel-eslint": "^10.0.3",
     "babel-plugin-styled-components": "^1.10.6",
+    "coveralls": "^3.0.11",
     "cross-env": "^6.0.3",
     "eslint": "^6.7.2",
     "eslint-config-recommended": "^4.0.0",
     "eslint-plugin-react": "^7.18.0",
+    "jest": "^25.2.7",
     "nodemon": "^2.0.1"
   }
 }

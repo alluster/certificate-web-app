@@ -13,7 +13,7 @@ npm install
 ```bash
 npm run dev
 ``` 
-[![Travis build](https://travis-ci.com/alluster/certificate.svg?branch=master)]
+![Travis build](https://travis-ci.com/alluster/certificate.svg?branch=master)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

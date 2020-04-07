@@ -16,4 +16,4 @@ connect-shopify.js
 /tmp/**
 /tools/internal-rules/node_modules/**
 test.js
-!.eslintrc.js
+.eslintrc.js

@@ -9,10 +9,8 @@
     "start": "NODE_ENV=production node server.js",
     "lint": "eslint .",
     "postinstall": "npm run build",
-	"lint-fix": "eslint --fix .",
-	"test": "jest",
-	"test:coverage": "jest --coverage",
-	"test:coverall": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "lint-fix": "eslint --fix .",
+    "test:coveralls": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.27",

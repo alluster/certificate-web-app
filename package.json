@@ -57,6 +57,6 @@
     "jest": "^25.2.7",
     "nodemon": "^2.0.1"
   },
-  "eslintIgnore": ["*.test.js"]
+  "eslintIgnore": ["tests/**"]
 
 }

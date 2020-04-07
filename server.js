@@ -20,7 +20,7 @@ var pool = mysql.createPool({
 	// Use the connection
 	// connection.query('SELECT id FROM users', function (error, results, fields) {
 	//   // When done with the connection, release it.
-	//   connection.release();
+	  connection.release();
   
 	//   // Handle error after the release.
 	//   if (error) throw error;

@@ -56,12 +56,12 @@ const Mark = styled.h4`
 // const imageTwitter = "https://seeklogo.com/images/T/twitter-2012-positive-logo-916EDF1309-seeklogo.com.png"
 const imageHs = "https://www.hs.fi/assets/images/og-hs-1920px.5fdbe1eeac47f127.png"
 const Accordion = () => {
-    const [toggle, setToggle]  = useState(false)
-  	return (
+    const [toggle, setToggle] = useState(false)
+	return(
 		<AccordionContainer onClick={ () => setToggle(!toggle)} open={toggle}>
             <Content>
                 <Gx col={2} breakpoint={300}>
-                    <LogoImage src={imageHs} />
+					<LogoImage src={imageHs} />
                 </Gx>
                 <Gx col={6} breakpoint={300} style={{"paddingLeft": "20px"}}>
                     <Label>Certificate name</Label>
@@ -72,15 +72,14 @@ const Accordion = () => {
                     <Mark>12345678</Mark>
                 </Gx>
                 <Gx col={1}>
-                    <h5 style={{"color": "orange"}} >
+                    <h5 style={{"color":"orange"}} >
                         <FontAwesomeIcon icon={faChevronDown} />
                     </h5>
                 </Gx>
             </Content>
-        
             <AccordionContent open={toggle}>
                 <Content>
-                    <Gx col={6} breakpoint={300} style={{"paddingLeft": "20px"}}>
+                    <Gx col={6} breakpoint={300} style={{"paddingLeft":"20px"}}>
                         <Label>Date Added</Label>
                         <Mark>1.3.2020</Mark>
                     </Gx>
@@ -94,11 +93,8 @@ const Accordion = () => {
                     </Gx>
                 </Content>
             </AccordionContent>
-		</AccordionContainer>
-
+        </AccordionContainer>
     )
 }
 
-
-  
 export default Accordion;

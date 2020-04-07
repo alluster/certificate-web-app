@@ -11,7 +11,7 @@
     "postinstall": "npm run build",
 	"lint-fix": "eslint --fix .",
 	"test": "jest",
-    "test:coveralls": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+	"test:coveralls": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.27",

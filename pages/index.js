@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '../layouts/layout';
 import Container from '../components/Container';
 import Hero from '../components/Hero';
-import Accordion from '../components/Accordion';
 
 const Home = () => {
 	const pageTitle = "In a world of robots and bots you cannot be sure what is real.";
@@ -12,7 +11,6 @@ const Home = () => {
 			<Layout title="Home" >
 				<Container>
 					<Hero title={pageTitle} ingress={pageIngress} image={heroImage}/>
-					<Accordion />
 				</Container>
 			</Layout>
 		)

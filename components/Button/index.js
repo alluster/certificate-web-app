@@ -10,7 +10,9 @@ const StyledButton = styled.button `
     text-align: center;
     text-transform: uppercase;
     font-size: 20px;
-
+	:hover {
+        cursor: pointer;
+    }
 
 `
 

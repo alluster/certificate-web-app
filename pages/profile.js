@@ -1,23 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Layout from '../layouts/layout';
 import Container from '../components/Container';
 import Hero from '../components/Hero';
-import Accordion from '../components/Accordion';
 import { withAuth, withLoginRequired } from 'use-auth0-hooks';
+import { AppContext } from  '../context/Context'
+import AddCertificate from '../components/AddCertificate';
+import CertificationsList from '../components/CertificationsList';
 
 const Profile = () => {
 
-	const pageTitle = "User Profile"
-    const pageIngress = "Welcome to Certify.me service"
+	const context = useContext(AppContext)  
+	const pageIngress = "Welcome to Certify.me service"
+
+	
 	return(
-			<Layout title="Profile" >
-				<Container>
-                    <Hero title={pageTitle} ingress={pageIngress}/>
-					<Accordion />
-				</Container>
-			</Layout>
-		
+		<Layout title="Profile" >
+			<Container>
+				<Hero title={context.user.nickname} ingress={pageIngress}/>
+				<AddCertificate />
+				<CertificationsList />
+			</Container>
+		</Layout>
 	)
 }
-
 export default withLoginRequired(withAuth(Profile))

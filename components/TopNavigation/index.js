@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import Gx from '@tgrx/gx';
 import Container from '../Container';
 import PropTypes from 'prop-types';
 import { Links } from '../links';
-import { useAuth } from 'use-auth0-hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { AppContext } from  '../../context/Context'
 
 const LOGO_IMG = '/logo.svg';
 
@@ -39,8 +39,7 @@ const Logo = styled.img `
 
 
 const TopNavigation = ({ className }) => {
-    const { isAuthenticated, isLoading, login, logout } = useAuth();
-
+	const context = useContext(AppContext)  
     return(
         <Container >
             <NavContainer className={className} >
@@ -53,7 +52,7 @@ const TopNavigation = ({ className }) => {
                     </Link>                
                 </Gx>
         
-            
+
             { Links.map((item, i) => {
                 return (
                     <Gx key={i} col={2}>
@@ -64,12 +63,13 @@ const TopNavigation = ({ className }) => {
                         </Link>
                     </Gx>
                 )
-            })}
-                    {!isLoading && (
-            isAuthenticated ? (
+			})}
+			{ context.isLoading ? <p>Loading</p>: null}
+                    {
+            context.isAuthenticated ? (
                 <>   
                     <Gx col={2}>
-                        <LinkText onClick={() => logout({ returnTo: process.env.AUTHO_RETURN_URL })}>Log out</LinkText>
+                        <LinkText onClick={() => context.logout({ returnTo: process.env.AUTHO_RETURN_URL })}>Log out</LinkText>
                     </Gx>
                     <Gx col={1}>
                         <Link href='/profile'>
@@ -84,12 +84,12 @@ const TopNavigation = ({ className }) => {
               </>
             ) : (
               <Gx col={2}>
-                <LinkText onClick={() => login({ appState: { returnTo: process.env.AUTHO_REDIRECT_URI + '/profile' } })}>
+                <LinkText onClick={() => context.login({ appState: { returnTo: process.env.AUTHO_REDIRECT_URI } })}>
                   Log in
                 </LinkText>
               </Gx>
             )
-          )}
+          }
             </NavContainer>        
         </Container>
             

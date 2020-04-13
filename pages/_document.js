@@ -28,6 +28,7 @@ class MyDocument extends Document {
                 <body>
                     <Main />
                     <NextScript />
+					<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
                 </body>
             </html>
         );

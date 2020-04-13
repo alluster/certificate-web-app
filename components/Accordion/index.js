@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link';
 import Gx from '@tgrx/gx';
+import PropTypes from 'prop-types';
 
 const AccordionContainer = styled.div `
     background-color: white;
@@ -52,10 +53,9 @@ const Mark = styled.h4`
 `;
 
 
-// const imageFingerPrint = "finger-print.svg"
-// const imageTwitter = "https://seeklogo.com/images/T/twitter-2012-positive-logo-916EDF1309-seeklogo.com.png"
+
 const imageHs = "https://www.hs.fi/assets/images/og-hs-1920px.5fdbe1eeac47f127.png"
-const Accordion = () => {
+const Accordion = (props) => {
     const [toggle, setToggle] = useState(false)
 	return(
 		<AccordionContainer onClick={ () => setToggle(!toggle)} open={toggle}>
@@ -65,11 +65,11 @@ const Accordion = () => {
                 </Gx>
                 <Gx col={6} breakpoint={300} style={{"paddingLeft": "20px"}}>
                     <Label>Certificate name</Label>
-                    <Mark>Twitter</Mark>
+                    <Mark>{props.name || "-"}</Mark>
                 </Gx>
                 <Gx col={3} >
                     <Label>ID</Label>
-                    <Mark>12345678</Mark>
+                    <Mark>{props.id || "-"}</Mark>
                 </Gx>
                 <Gx col={1}>
                     <h5 style={{"color":"orange"}} >
@@ -81,13 +81,13 @@ const Accordion = () => {
                 <Content>
                     <Gx col={6} breakpoint={300} style={{"paddingLeft":"20px"}}>
                         <Label>Date Added</Label>
-                        <Mark>1.3.2020</Mark>
+                        <Mark>{props.date || "-"}</Mark>
                     </Gx>
                     <Gx col={3} >
                         <Label>Link to content</Label>
-                        <Link href="/">
+                        <Link href={props.url || "/"}>
                             <a>
-                                <Mark>12345678</Mark>
+                                <Mark>{props.url || "-"}</Mark>
                             </a>
                         </Link>
                     </Gx>
@@ -96,5 +96,11 @@ const Accordion = () => {
         </AccordionContainer>
     )
 }
-
+Accordion.propTypes = {
+	name: PropTypes.string,
+	url: PropTypes.string,
+	id: PropTypes.string,
+	date: PropTypes.string,
+	owner: PropTypes.string
+ };
 export default Accordion;

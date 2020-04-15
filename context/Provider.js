@@ -6,27 +6,18 @@ import axios from 'axios';
 
 const Provider = ({children}) => {
 
-const initialState = {
-	certification: {
-		name: "",
-		url: "",
 
-	}
-}
 	const { isAuthenticated, login, logout, user  } = useAuth();
 	const [ userCertifications, setUsercertifications ] = useState([])
-	const [certification, setCertification] = useState({
-		name: "",
-		url: "",
-		owner: "",
-		date: "",
-		id: ""
-	})
-	console.log(user)
+	// const [certification, setCertification] = useState({
+	// 	name: "",
+	// 	url: "",
+	// 	owner: "",
+	// 	date: "",
+	// 	id: ""
+	// })
 
-	const clearState = () => {
-		setCertification({ ...initialState });
-	};
+
 	const GetCertifications = (sub) => {
 		axios.get('/getusercertifications', {
 			params: {
@@ -45,11 +36,14 @@ const initialState = {
 	}
 
 	useEffect(() => {
-		console.log(userCertifications)
 	}, []);
         return (
             <AppContext.Provider 
                 value={{
+					// setState,
+					// name,
+					// id,
+					// url,
 					GetCertifications,
 					userCertifications,
 					setUsercertifications,
@@ -57,9 +51,9 @@ const initialState = {
                     isAuthenticated,
                     login,
 					user,
-					certification,
-					setCertification,
-					clearState
+					// certification,
+					// setCertification,
+					// clearState
                 }} 
             >
                 {children}

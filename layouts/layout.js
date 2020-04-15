@@ -16,7 +16,8 @@ const GlobalStyle = createGlobalStyle`
         max-width: 100%;
         color: white;
         height: 100%;
-        font-family: "Montserrat", Arial, sans-serif;
+		font-family: "Montserrat", Arial, sans-serif;
+		font-display: swap;
     }
     h1 {
         margin-top: 0.3em; 

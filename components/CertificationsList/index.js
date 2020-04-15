@@ -11,8 +11,9 @@ const CertificationsList = () => {
 
 	useEffect(() => {
 		context.GetCertifications(sub)
+		
 	}, []);
-	
+
 	return(
 		<div>
 			{

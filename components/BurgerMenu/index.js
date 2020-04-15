@@ -69,6 +69,9 @@ const NavOpen = styled.div`
     
 
 `;
+const H3 = styled.h3 `
+	margin-top: 40px;
+`
 
 
 const BurgerMenu = ({className} ) => {
@@ -102,14 +105,14 @@ const BurgerMenu = ({className} ) => {
 								isAuthenticated ? 
 									<div>
 										<Gx col={2}>
-											<h3 onClick={() => logout({ returnTo: process.env.AUTHO_RETURN_URL })}>Log out</h3>
+											<H3 onClick={() => logout({ returnTo: process.env.AUTHO_RETURN_URL })}>Log out</H3>
 										</Gx>
 										<Gx col={1}>
 											<Link href='/profile'>
 												<a>
-													<h3>
+													<H3>
 														Profile
-													</h3>
+													</H3>
 												</a>
 											</Link>
 										</Gx>
@@ -118,9 +121,9 @@ const BurgerMenu = ({className} ) => {
 							
 							: 
 							<Gx col={2}>
-								<h3 onClick={() => login({ appState: { returnTo: process.env.AUTHO_REDIRECT_URI + '/profile' } })}>
+								<H3 onClick={() => login({ appState: { returnTo: process.env.AUTHO_REDIRECT_URI } })}>
 								Log in
-								</h3>
+								</H3>
 							</Gx>
 							
 							}
@@ -128,7 +131,7 @@ const BurgerMenu = ({className} ) => {
 								return (
 									<Link key={i} href={item.link}>
 										<a onClick={() => setNav(!nav)}>
-											<h3 >{item.name}</h3>
+											<H3 >{item.name}</H3>
 										</a>
 									</Link>
 								)

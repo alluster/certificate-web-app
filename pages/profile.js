@@ -11,12 +11,14 @@ const Profile = () => {
 
 	const context = useContext(AppContext)  
 	const pageIngress = "Welcome to Certify.me service"
+	function x(y){
+		return y.replace('.', ' ').replace(/(?:^|\s)\S/g, a => a.toUpperCase());
+	}
 
-	
 	return(
 		<Layout title="Profile" >
 			<Container>
-				<Hero title={context.user.nickname} ingress={pageIngress}/>
+				<Hero title={x(context.user.nickname)} ingress={pageIngress}/>
 				<AddCertificate />
 				<CertificationsList />
 			</Container>

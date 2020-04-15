@@ -64,10 +64,11 @@ const Input = styled.input`
 const SubmitButton = styled.button `
 	background-color: ${props => props.theme.colors.primary};
 	color: white;
+	-webkit-text-fill-color: white;
 	height: 40px; border-radius: 20px;
 	text-align: center;
 	line-height: 40px;
-	font-weight: normal;
+	font-weight: bold;
 	font-size: 20px;
 	padding-left: auto;
 	padding-right: auto;

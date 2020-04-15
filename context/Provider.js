@@ -7,7 +7,7 @@ import axios from 'axios';
 const Provider = ({children}) => {
 
 
-	const { isAuthenticated, login, logout, user  } = useAuth();
+	const { isAuthenticated, login, logout, user, signup  } = useAuth();
 	const [ userCertifications, setUsercertifications ] = useState([])
 	// const [certification, setCertification] = useState({
 	// 	name: "",
@@ -43,6 +43,7 @@ const Provider = ({children}) => {
 					// setState,
 					// name,
 					// id,
+					signup,
 					// url,
 					GetCertifications,
 					userCertifications,

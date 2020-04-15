@@ -6,8 +6,6 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { Links } from '../links';
 import { useAuth } from 'use-auth0-hooks';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
 const LOGO_IMG = '/logo.svg';
 
 const NavWrapper = styled.div `
@@ -75,9 +73,8 @@ const NavOpen = styled.div`
 
 const BurgerMenu = ({className} ) => {
     const [nav, setNav] = useState(false)
-    const { isAuthenticated, isLoading, login, logout } = useAuth();
-
-
+	const { isAuthenticated, login, logout } = useAuth();
+	console.log(useAuth())
     return(
         <NavWrapper className={className}>
             <NavContainer >
@@ -101,49 +98,48 @@ const BurgerMenu = ({className} ) => {
                     nav ?
                     <Gx col={12} >
                         <NavOpen>
-                        {!isLoading && (
-            isAuthenticated ? (
-                <>   
-                    <Gx col={2}>
-                        <h3 onClick={() => logout({ returnTo: process.env.AUTHO_RETURN_URL })}>Log out</h3>
-                    </Gx>
-                    <Gx col={1}>
-                        <Link href='/profile'>
-                            <a>
-                                <h3>
-                                    <FontAwesomeIcon icon={faUser} />
-                                </h3>
-                            </a>
-
-                        </Link>
-                    </Gx>
-              </>
-            ) : (
-              <Gx col={2}>
-                <h3 onClick={() => login({ appState: { returnTo: process.env.AUTHO_REDIRECT_URI + '/profile' } })}>
-                  Log in
-                </h3>
-              </Gx>
-            )
-          )}
-                            {Links.map((item, i) => {
-                                return (
-                                    <Link key={i} href={item.link}>
-                                        <a onClick={() => setNav(!nav)}>
-                                            <h3 >{item.name}</h3>
-                                        </a>
-                                    </Link>
-                                )
-                            })}    
+							{
+								isAuthenticated ? 
+									<div>
+										<Gx col={2}>
+											<h3 onClick={() => logout({ returnTo: process.env.AUTHO_RETURN_URL })}>Log out</h3>
+										</Gx>
+										<Gx col={1}>
+											<Link href='/profile'>
+												<a>
+													<h3>
+														Profile
+													</h3>
+												</a>
+											</Link>
+										</Gx>
+									</div>
+									
+							
+							: 
+							<Gx col={2}>
+								<h3 onClick={() => login({ appState: { returnTo: process.env.AUTHO_REDIRECT_URI + '/profile' } })}>
+								Log in
+								</h3>
+							</Gx>
+							
+							}
+							{Links.map((item, i) => {
+								return (
+									<Link key={i} href={item.link}>
+										<a onClick={() => setNav(!nav)}>
+											<h3 >{item.name}</h3>
+										</a>
+									</Link>
+								)
+							})}    
                         </NavOpen>
                     </Gx>
                     :
                     null
                 }
-                
             </NavContainer>
         </NavWrapper>
-        
     );
 };
 BurgerMenu.propTypes = {

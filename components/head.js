@@ -18,7 +18,7 @@ const Head = ({ title, ogImage, route, description }) => {
     return (
         <NextHead>
             
-            <meta property="og:url" content={route || SITE_URL} />
+            <meta property="og:url" content={SITE_URL + route || SITE_URL} />
             <meta property="og:title" content={title || fallbackTitle} />
             <meta property="og:type" content="website" />
             <meta property="og:description" content={description || metaDescription} />

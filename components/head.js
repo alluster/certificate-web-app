@@ -8,7 +8,7 @@ const SITE_URL = 'http://certificate-me.herokuapp.com';
 const fallbackOgImage = SITE_URL + '/fallbackOgImage.jpg';
 const fallbackOgImageSecure = SITE_URL_SECURE + '/fallbackOgImage.jpg';
 const metaDescription = 'Certificate your content in web';
-
+const fallbackTitle = 'This content has been certified by Certify Me';
 const Head = ({ title, ogImage, route, description }) => {
     route = route || fallbackRoute;
     if (!route.startsWith('/')) {
@@ -18,8 +18,8 @@ const Head = ({ title, ogImage, route, description }) => {
     return (
         <NextHead>
             
-            <meta property="og:url" content={SITE_URL + route} />
-            <meta property="og:title" content={title} />
+            <meta property="og:url" content={route || SITE_URL} />
+            <meta property="og:title" content={title || fallbackTitle} />
             <meta property="og:type" content="website" />
             <meta property="og:description" content={description || metaDescription} />
             <meta name="description" content={description || metaDescription} />

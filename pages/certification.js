@@ -5,16 +5,16 @@ import { useRouter } from 'next/router';
 import Certificate from '../components/Certificate';
 
 const Certification = () => {
-	const router = useRouter();
-
+	const router = useRouter()
 	useEffect(() => {
+		console.log(router)
 	}, []);
 
 	return(
 			<Layout 
-				title={router.query.id}
-				description={router.query.id}
-				route={'certification/' + router.query.id}
+				title={router.asPath}
+				// description={router.query.id}
+				route={router.asPath}
 			>
 				<Container>
 					<Certificate id={router.query.id}/>

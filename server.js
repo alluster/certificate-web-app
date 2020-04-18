@@ -29,8 +29,22 @@ app.prepare().then(() => {
       extended: true
     }));
    
-	server.get('/getuserdata', (req, res) => {
-        console.log(req.query.id)
+	server.get('/getcertification', (req, res) => {
+		console.log(req.query)
+        pool.getConnection(function(err, connection) {
+
+			if (err) throw err; 
+			query = SQL`SELECT * FROM certifications WHERE id=${req.query.id}`
+			connection.query(
+				query,
+				function (error, results, fields) {
+					res.send(results)
+					console.log(results)
+					connection.release();
+					if (error) throw error;
+				}
+			);
+		});
 	})
 	
 	server.get('/addcertification', (req, res) => {

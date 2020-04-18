@@ -50,7 +50,7 @@ const Mark = styled.h4`
 
 
 const Accordion = (props) => {
-    const [toggle, setToggle] = useState(false)
+	const [toggle, setToggle] = useState(false)
 	return(
 		<AccordionContainer onClick={ () => setToggle(!toggle)} open={toggle}>
             <Content>
@@ -64,7 +64,12 @@ const Accordion = (props) => {
                 </Gx>
                 <Gx col={3} >
                     <Label>ID</Label>
-                    <Mark>{props.id || "-"}</Mark>
+					<Mark>
+						<Link href={`/certification?id=${props.id}`} as={`${props.name}`}>
+							<a>{props.id}</a>
+						</Link>
+					
+					</Mark>
                 </Gx>
                 <Gx col={1}>
                     <h5 style={{"color":"orange"}} >

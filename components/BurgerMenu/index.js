@@ -33,7 +33,7 @@ const BurgerContainer = styled.div`
 
 `;
 
-const StyledBurger = styled.button`
+const StyledBurger = styled.div`
     top: 5%;
     display: flex;
     flex-direction: column;
@@ -77,7 +77,6 @@ const H3 = styled.h3 `
 const BurgerMenu = ({className} ) => {
     const [nav, setNav] = useState(false)
 	const { isAuthenticated, login, logout } = useAuth();
-	console.log(useAuth())
     return(
         <NavWrapper className={className}>
             <NavContainer >

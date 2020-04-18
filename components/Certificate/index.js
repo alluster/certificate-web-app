@@ -32,14 +32,14 @@ const Certificate = () => {
 		console.log(certificate)
 	}, []);
 	const Loader = () => {
-		return (
+		
 			<p>Loading...</p>
-		)
+		
 	}
 	return(
 			<div>
 				{
-					isLoading ? Loader : <p>{router.query.id}</p>
+					isLoading ? Loader() : <p>{router.query.id}</p>
 				}
 			</div>
 		

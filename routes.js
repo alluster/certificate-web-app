@@ -4,4 +4,4 @@ routes
     .add('index', '/')
     .add('about', '/about')
     .add('contact', '/contact')
-    .add('certificate', 'certificate/:id')
+    .add('certification', 'certification/:id')

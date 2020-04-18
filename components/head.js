@@ -22,6 +22,8 @@ const Head = ({ title, ogImage, route, description }) => {
             <meta property="og:image" content={ogImage || fallbackOgImage} />
             <meta property="og:description" content={description || metaDescription} />
             <meta name="description" content={description || metaDescription} />
+
+			
         </NextHead>
     );
 };

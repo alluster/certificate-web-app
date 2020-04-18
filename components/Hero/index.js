@@ -57,7 +57,7 @@ const Hero = ({title, ingress, image}) => {
         <HeroStyled>
             <Container>
                 <ImageContainer>
-                    <img src={image} /> 
+                    <img src={image} alt="Hero image" /> 
                 </ImageContainer>
                 <Title>
                     {title}

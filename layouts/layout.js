@@ -140,15 +140,17 @@ const Nav = styled(TopNavigation)`
 `
 
 
-const Layout = ({title, children}) => {
+const Layout = ({title, description, route, children}) => {
     return(
             <ThemeProvider theme={theme}>
             <Background>
-                <Head>
-                        <title>{ title }</title>
-                        <meta charSet='utf-8' />
-                        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-                </Head>
+                <Head 
+					title={title}
+					description={description}
+					route={route}
+				/>
+                       
+             
                 <header>
                     
                     <Nav />
@@ -168,7 +170,9 @@ const Layout = ({title, children}) => {
     
 Layout.propTypes = {
 	children: PropTypes.object,
-	title: PropTypes.string
+	title: PropTypes.string,
+	description: PropTypes.string,
+	route: PropTypes.string
 }
     
 

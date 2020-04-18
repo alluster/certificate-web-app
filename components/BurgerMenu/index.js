@@ -83,7 +83,7 @@ const BurgerMenu = ({className} ) => {
                 <Gx col={4} breakpoint={300} >
                     <Link href="/">
                         <a onClick={() => setNav(false)}>
-                        <Logo src={LOGO_IMG} />
+                        <Logo src={LOGO_IMG} alt="certificate me"/>
                         </a>
                     </Link>
                 </Gx>

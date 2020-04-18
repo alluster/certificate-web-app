@@ -79,20 +79,10 @@ const GlobalStyle = createGlobalStyle`
     button {
         all: unset;
 	}
-	button:hover {
-    	all: unset;
-	}
-	button:focus {
-    	all: unset;
-	}
 
-	button:focus {
-    	all: unset;
-		}
 
-	button:active {
-    	all: unset;
-	}
+
+
     input {
         all: unset;
         ::-webkit-input-placeholder {

@@ -16,7 +16,6 @@ class MyDocument extends Document {
         return (
             <html lang="en">
                 <Head>
-                    {this.props.styleTags}
                     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                     <meta property="og:site_name" content="Certificate Me" />
                     <link rel="icon" type="image/png" href="/favicon.ico" sizes="48x48" />
@@ -27,6 +26,7 @@ class MyDocument extends Document {
                         href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,700"
                         rel="stylesheet"
                     />
+					{this.props.styleTags}
                 </Head>
                 <body>
                     <Main />

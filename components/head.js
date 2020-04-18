@@ -17,7 +17,7 @@ const Head = ({ title, ogImage, route, description }) => {
 
     return (
         <NextHead>
-            <title>{title ? title : 'Certificate me'}</title>
+            
             <meta property="og:url" content={SITE_URL + route} />
             <meta property="og:title" content={title} />
             <meta property="og:type" content="website" />
@@ -29,6 +29,7 @@ const Head = ({ title, ogImage, route, description }) => {
 			<meta property="og:image:height" content="300" />
             <meta property="og:image" content={ogImage || fallbackOgImage} />
 			<meta property="og:image:secure_url" content={ogImage || fallbackOgImageSecure} />
+			<title>{title ? title : 'Certificate me'}</title>
         </NextHead>
     );
 };

@@ -11,7 +11,11 @@ const Certification = () => {
 	}, []);
 
 	return(
-			<Layout title="Certificate" >
+			<Layout 
+				title="Hello world"
+				description={`This is a certification for ${router.query.id}`}
+				route={'certificate/' + router.query.id}
+			>
 				<Container>
 					<Certificate id={router.query.id}/>
 				</Container>

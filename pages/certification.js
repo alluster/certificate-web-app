@@ -4,8 +4,9 @@ import Container from '../components/Container';
 import { withRouter } from 'next/router';
 import Certificate from '../components/Certificate';
 import PropTypes from 'prop-types';
+import fetch from 'isomorphic-unfetch';
 
-const Certification = ({router}) => {
+const Certification = (props, router) => {
 	useEffect(() => {
 	}, []);
 	return(
@@ -14,11 +15,11 @@ const Certification = ({router}) => {
 				// description={router.query.id}
 				route={router.asPath}
 			>
+			
 				<Container>
-					<Certificate  id={router.query.id}/>
+					<Certificate cert={props.certification}/>
 				</Container>
-			</Layout>
-		
+			</Layout>		
 	)
 }
 
@@ -26,4 +27,11 @@ Certification.propTypes = {
 	router: PropTypes.any
 	
  };
+ Certification.getInitialProps = async function(router) {
+	const res = await fetch(`${process.env.AUTHO_RETURN_URL}/getcertification/${router.query.id}`)
+	const data = await res.json()
+	return {
+		certification: data[0]
+	}
+  };
 export default withRouter(Certification);

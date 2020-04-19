@@ -4,6 +4,8 @@ import { AppContext } from '../../context/Context';
 import styled from 'styled-components';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import PropTypes from 'prop-types';
+import { withRouter } from 'next/router';
+
 
 const Button = styled.button`
 	background-color: ${props => props.theme.colors.primary};
@@ -25,11 +27,10 @@ const Button = styled.button`
 		width: 100%;
 	}
 `;
-const Certificate = (props) => {
+const Certificate = (props, router) => {
 	const context = useContext(AppContext);
 	const [ copyMessage, setCopyMessage ] = useState()
-	const router = useRouter();
-	const data =  context.certification
+	const data = props.cert
 	const CertificationUrl = process.env.AUTHO_RETURN_URL + router.asPath
 
 	const CopyMessage = () => {
@@ -42,15 +43,12 @@ const Certificate = (props) => {
 
 
 	useEffect(() => {
-		context.GetCertification(props.id)
 		context.LoadingContent()
 	}, []);
 
 	return(
 			<div>
-				<h3>
-					{copyMessage}
-				</h3>
+		
 				{
 					data ? 
 					<div>
@@ -60,11 +58,13 @@ const Certificate = (props) => {
 						<p>Owner id: {data.owner || "-" }</p>  
 						<p>Certificate name: {data.name || "-" }</p> 
 						<p>Certificate url to content: {data.url || "-" }</p>
-						
+						<h3>
+							{copyMessage}
+						</h3>
 						<CopyToClipboard text={CertificationUrl}
 							onCopy={() => CopyMessage()}
 						>
-							<Button>Use Certification</Button>
+							<Button>Copy Certification</Button>
 						</CopyToClipboard>
 					</div>
 					: 
@@ -74,7 +74,11 @@ const Certificate = (props) => {
 	)
 }
 Certificate.propTypes = {
-	id: PropTypes.string
+	id: PropTypes.string,
+	router: PropTypes.any
 	
- };
-export default Certificate;
+ };	
+
+
+
+export default withRouter(Certificate);

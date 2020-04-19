@@ -29,12 +29,12 @@ app.prepare().then(() => {
       extended: true
     }));
    
-	server.get('/getcertification', (req, res) => {
+	server.get('/getcertification/:id', (req, res) => {
 		console.log(req.query)
         pool.getConnection(function(err, connection) {
 
 			if (err) throw err; 
-			query = SQL`SELECT * FROM certifications WHERE id=${req.query.id}`
+			query = SQL`SELECT * FROM certifications WHERE id=${req.params.id}`
 			connection.query(
 				query,
 				function (error, results, fields) {

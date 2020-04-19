@@ -24,7 +24,8 @@ const Certification = (props, router) => {
 }
 
 Certification.propTypes = {
-	router: PropTypes.any
+	router: PropTypes.any,
+	certification: PropTypes.any
 	
  };
  Certification.getInitialProps = async function(router) {

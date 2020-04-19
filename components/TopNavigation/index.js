@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import Gx from '@tgrx/gx';
-import Container from '../Container';
 import PropTypes from 'prop-types';
 import { Links } from '../links';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -41,10 +40,9 @@ const Logo = styled.img `
 const TopNavigation = ({ className }) => {
 	const context = useContext(AppContext)  
     return(
-        <Container >
             <NavContainer className={className} >
 
-                <Gx col={3}>
+                <Gx col={2}>
                     <Link href="/">
                         <a>
                         <Logo src={LOGO_IMG} alt="Certificate me" />
@@ -83,15 +81,22 @@ const TopNavigation = ({ className }) => {
                     </Gx>
               </>
             ) : (
-              <Gx col={2}>
-                <LinkText onClick={() => context.login({ appState: { returnTo: process.env.AUTHO_REDIRECT_URI } })}>
-                  Log in
-                </LinkText>
-              </Gx>
+				<div>
+					<Gx col={2}>
+						<LinkText onClick={() => context.login({ appState: { returnTo: process.env.AUTHO_REDIRECT_URI } })}>
+							Log in
+						</LinkText>
+					</Gx>
+					<Gx col={2}>
+						<LinkText onClick={() => context.login({ appState: { returnTo: process.env.AUTHO_REDIRECT_URI } })}>
+							Register
+						</LinkText>
+					</Gx>
+				</div>
+				
             )
           }
             </NavContainer>        
-        </Container>
             
     );
 };

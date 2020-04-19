@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { useRouter } from 'next/router';
 import { AppContext } from '../../context/Context';
 import styled from 'styled-components';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -75,7 +74,8 @@ const Certificate = (props, router) => {
 }
 Certificate.propTypes = {
 	id: PropTypes.string,
-	router: PropTypes.any
+	router: PropTypes.any,
+	cert: PropTypes.any
 	
  };	
 

@@ -8,7 +8,9 @@ const Provider = ({children}) => {
 
 	const { isAuthenticated, login, logout, user, signup  } = useAuth();
 	const [ userCertifications, setUsercertifications ] = useState([]);
-	const [ certification, setCertification ] = useState([]);
+	const [ certification, setCertification ] = useState();
+	const [ isLoading, setIsLoading ] = useState(false)
+	const [ loadingMessage, setLoadingMessage ] = useState()
 
 
 	const GetCertifications = (sub) => {
@@ -27,6 +29,30 @@ const Provider = ({children}) => {
 		.finally(function () {
 		});
 	}
+	const GetCertification =  (id) => {
+	
+		axios.get('/getcertification', {
+			params: {
+				id: id
+			}
+		})
+		.then(function (response) {
+			let data = response.data[0]
+			setCertification(data)
+		})
+		.catch(error => {
+			console.log(error);
+		});
+	};
+	const LoadingContent = () => {
+		setLoadingMessage("Loading content...") 
+		setTimeout(() => {
+			setLoadingMessage("Unfortunatelly something went wrong. We are working on this. Please return to previous page and try again")  
+		}, 8000)
+		setTimeout(() => {
+			setLoadingMessage("")  
+		}, 14000)
+	}
 
 	useEffect(() => {
 	}, []);
@@ -43,6 +69,11 @@ const Provider = ({children}) => {
 					user,
 					certification,
 					setCertification,
+					isLoading,
+					setIsLoading,
+					GetCertification,
+					LoadingContent,
+					loadingMessage
                 }} 
             >
                 {children}

@@ -65,7 +65,7 @@ const Accordion = (props) => {
                 <Gx col={3} >
                     <Label>ID</Label>
 					<Mark>
-						<Link href={`/certification?id=${props.id}`} as={`${props.name}`}>
+						<Link href={`/certification?id=${props.id}`} >
 							<a>{props.id}</a>
 						</Link>
 					

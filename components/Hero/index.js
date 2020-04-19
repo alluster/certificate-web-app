@@ -56,9 +56,15 @@ const Hero = ({title, ingress, image}) => {
     return(
         <HeroStyled>
             <Container>
-                <ImageContainer>
-                    <img src={image} alt="Hero image" /> 
-                </ImageContainer>
+				{
+					image ? 
+						<ImageContainer>
+							<img src={image} alt="Hero image" /> 
+						</ImageContainer>
+						:
+						null
+				}
+               
                 <Title>
                     {title}
                 </Title>

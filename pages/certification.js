@@ -1,15 +1,13 @@
 import React, { useEffect } from 'react';
 import Layout from '../layouts/layout';
 import Container from '../components/Container';
-import { useRouter } from 'next/router';
+import { withRouter } from 'next/router';
 import Certificate from '../components/Certificate';
+import PropTypes from 'prop-types';
 
-const Certification = () => {
-	const router = useRouter()
+const Certification = ({router}) => {
 	useEffect(() => {
-		console.log(router)
 	}, []);
-
 	return(
 			<Layout 
 				title={router.asPath}
@@ -17,11 +15,15 @@ const Certification = () => {
 				route={router.asPath}
 			>
 				<Container>
-					<Certificate id={router.query.id}/>
+					<Certificate  id={router.query.id}/>
 				</Container>
 			</Layout>
 		
 	)
 }
 
-export default Certification;
+Certification.propTypes = {
+	router: PropTypes.any
+	
+ };
+export default withRouter(Certification);

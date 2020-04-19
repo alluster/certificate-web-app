@@ -109,7 +109,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Background = styled.div `
-    background-color: ${props => props.theme.colors.persBlue}
+	background-color: ${props => props.theme.colors.persBlue}
 
 
 `

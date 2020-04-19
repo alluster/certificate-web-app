@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import { AppContext } from '../../context/Context';
 import styled from 'styled-components';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import PropTypes from 'prop-types';
 
 const Button = styled.button`
@@ -37,6 +38,9 @@ const Certificate = (props) => {
 			setCopyMessage("")  
 		}, 4000)
 	}
+
+
+
 	useEffect(() => {
 		context.GetCertification(props.id)
 		context.LoadingContent()
@@ -56,7 +60,12 @@ const Certificate = (props) => {
 						<p>Owner id: {data.owner || "-" }</p>  
 						<p>Certificate name: {data.name || "-" }</p> 
 						<p>Certificate url to content: {data.url || "-" }</p>
-						<Button onClick={() => {navigator.clipboard.writeText(CertificationUrl), CopyMessage()} } >Use certificate</Button>
+						
+						<CopyToClipboard text={CertificationUrl}
+							onCopy={() => CopyMessage()}
+						>
+							<Button>Use Certification</Button>
+						</CopyToClipboard>
 					</div>
 					: 
 					<h3>{context.loadingMessage}</h3>

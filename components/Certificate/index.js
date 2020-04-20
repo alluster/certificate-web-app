@@ -39,7 +39,10 @@ const Certificate = (props) => {
 		}, 4000)
 	}
 
-
+	function reformatName(y){
+		return y.replace('.', ' ').replace(/(?:^|\s)\S/g, a => a.toUpperCase());
+	}
+	const name = reformatName(data.username)
 
 	useEffect(() => {
 		context.LoadingContent()
@@ -52,6 +55,8 @@ const Certificate = (props) => {
 					data ? 
 					<div>
 						<h1>Content Certificate</h1>
+						<p>Certificate Owner: {name || "-" }</p> 
+
 						<p>Certificate id: {data.id || "-" }</p> 
 						<p>Creation date: {data.date || "-" }</p>
 						<p>Owner id: {data.owner || "-" }</p>  

@@ -5,7 +5,7 @@ import Gx from '@tgrx/gx';
 import PropTypes from 'prop-types';
 import { Links } from '../links';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faSignInAlt } from '@fortawesome/free-solid-svg-icons'
 import { AppContext } from  '../../context/Context'
 
 const LOGO_IMG = '/logo.svg';
@@ -13,7 +13,8 @@ const LOGO_IMG = '/logo.svg';
 const LinkText = styled.h3`
     font-weight: 400;
     font-size: 18px;
-    color: white;
+	color: white;
+	line-height: 50px;
     :hover {
         cursor: pointer;
     }
@@ -23,11 +24,12 @@ const LinkText = styled.h3`
 const NavContainer = styled.div`
     text-align: center;
     padding-top: 20px;
-    min-width: 100%;
+	min-width: 100%;
+	height: 50px;
 `;
 
 const Logo = styled.img `
-    width: 100%;
+    width: 80%;
     object-fit: cover;
     padding: 10px;
     @media (max-width: ${props => props.theme.screenSize.tablet}) {
@@ -45,7 +47,7 @@ const TopNavigation = ({ className }) => {
                 <Gx col={2}>
                     <Link href="/">
                         <a>
-                        <Logo src={LOGO_IMG} alt="Certificate me" />
+                        	<Logo src={LOGO_IMG} alt="Certificate me" />
                         </a>
                     </Link>                
                 </Gx>
@@ -53,7 +55,7 @@ const TopNavigation = ({ className }) => {
 
             { Links.map((item, i) => {
                 return (
-                    <Gx key={i} col={2}>
+                    <Gx key={i} col={1}>
                         <Link href={item.link}>
                             <a>
                             <LinkText>{item.name}</LinkText> 
@@ -62,7 +64,6 @@ const TopNavigation = ({ className }) => {
                     </Gx>
                 )
 			})}
-			{ context.isLoading ? <p>Loading</p>: null}
                     {
             context.isAuthenticated ? (
                 <>   
@@ -81,19 +82,16 @@ const TopNavigation = ({ className }) => {
                     </Gx>
               </>
             ) : (
-				<div>
+				<>   
 					<Gx col={2}>
-						<LinkText onClick={() => context.login({ appState: { returnTo: process.env.AUTHO_REDIRECT_URI } })}>
-							Log in
+						<LinkText onClick={() => context.login({ returnTo: process.env.AUTHO_RDIRECT_URI })}>Sign Up</LinkText>
+					</Gx>
+					<Gx col={1}>
+						<LinkText>
+							<FontAwesomeIcon  onClick={() => context.login({ returnTo: process.env.AUTHO_RDIRECT_URI })} icon={faSignInAlt} />
 						</LinkText>
 					</Gx>
-					<Gx col={2}>
-						<LinkText onClick={() => context.login({ appState: { returnTo: process.env.AUTHO_REDIRECT_URI } })}>
-							Register
-						</LinkText>
-					</Gx>
-				</div>
-				
+		  		</>
             )
           }
             </NavContainer>        

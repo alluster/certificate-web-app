@@ -52,10 +52,20 @@ const HeroStyled = styled.div`
 
 
 
-const Hero = ({title, ingress, image}) => {
+const Hero = ({title, ingress, image, children}) => {
     return(
         <HeroStyled>
             <Container>
+                <Title>
+					{title}
+					<div>
+						{children}
+					</div>
+                </Title>
+	
+				<Ingress>
+                   {ingress}
+                </Ingress>
 				{
 					image ? 
 						<ImageContainer>
@@ -64,14 +74,6 @@ const Hero = ({title, ingress, image}) => {
 						:
 						null
 				}
-               
-                <Title>
-                    {title}
-                </Title>
-                <Ingress>
-                   {ingress}
-                </Ingress>
-
             </Container>
         </HeroStyled>
         

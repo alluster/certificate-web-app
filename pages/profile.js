@@ -18,7 +18,8 @@ const Profile = () => {
 	return(
 		<Layout title="Profile" >
 			<Container>
-				<Hero title={reformatName(context.user.nickname)} ingress={pageIngress}/>
+				<p>Profile</p>
+				<h1>{reformatName(context.user.nickname)}</h1>
 				<AddCertificate />
 				<CertificationsList />
 			</Container>

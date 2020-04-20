@@ -15,7 +15,6 @@ const NavWrapper = styled.div `
 `;
 
 const NavContainer = styled(Container)`
-    margin-top: 20px;
 
 `;
 

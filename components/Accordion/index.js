@@ -63,7 +63,7 @@ const Button = styled.button`
 		cursor: pointer
 	}
 	@media (max-width: ${props => props.theme.screenSize.tablet}) {
-		width: 100%;
+		width: 60%;
 	}
 `;
 

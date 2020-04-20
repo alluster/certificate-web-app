@@ -47,7 +47,25 @@ const Mark = styled.h4`
     font-weight: 600;
 `;
 
-
+const Button = styled.button`
+	background-color: ${props => props.theme.colors.primary};
+	color: white;
+	-webkit-text-fill-color: white;
+	height: 40px; border-radius: 20px;
+	text-align: center;
+	line-height: 40px;
+	font-weight: bold;
+	font-size: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	width: auto;
+	:hover {
+		cursor: pointer
+	}
+	@media (max-width: ${props => props.theme.screenSize.tablet}) {
+		width: 100%;
+	}
+`;
 
 const Accordion = (props) => {
 	const [toggle, setToggle] = useState(false)
@@ -58,7 +76,7 @@ const Accordion = (props) => {
 					<FontAwesomeIcon icon={faBookmark} />
 
                 </Gx>
-                <Gx col={6} breakpoint={300} style={{"paddingLeft": "20px"}}>
+                <Gx col={3} breakpoint={300} style={{"paddingLeft": "20px"}}>
                     <Label>Certificate name</Label>
                     <Mark>{props.name || "-"}</Mark>
                 </Gx>
@@ -67,6 +85,14 @@ const Accordion = (props) => {
 					<Mark>
 						<Link href={`/certification?id=${props.id}`} >
 							<a>{props.id}</a>
+						</Link>
+					
+					</Mark>
+                </Gx>
+				<Gx col={3} >
+					<Mark>
+						<Link href={`/certification?id=${props.id}`} >
+							<Button>View Certificate</Button>
 						</Link>
 					
 					</Mark>

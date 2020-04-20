@@ -26,11 +26,11 @@ const Button = styled.button`
 		width: 100%;
 	}
 `;
-const Certificate = (props, router) => {
+const Certificate = (props) => {
 	const context = useContext(AppContext);
 	const [ copyMessage, setCopyMessage ] = useState()
 	const data = props.cert
-	const CertificationUrl = process.env.AUTHO_RETURN_URL + router.asPath
+	const CertificationUrl = process.env.AUTHO_RETURN_URL + props.router.asPath
 
 	const CopyMessage = () => {
 		setCopyMessage("Certification copied. Go to your publication and paste certification there") 

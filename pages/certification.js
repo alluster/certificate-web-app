@@ -12,8 +12,9 @@ const Certification = (props) => {
 	}, []);
 	return(
 			<Layout 
-				title={props.router.asPath}
+				title={`This content was published by ${props.certification.username}`}
 				// description={router.query.id}
+				
 				route={props.router.asPath}
 			>
 			

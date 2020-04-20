@@ -6,7 +6,7 @@ const CertificationsList = () => {
 	const context = useContext(AppContext)
 	const sub = context.user.sub;
 	const listItems = context.userCertifications.reverse().map((cert, i) =>
-		<Accordion key={i} name={cert.name} id={cert.id} url={cert.url} date={cert.date} owner={cert.owner} />
+		<Accordion key={i} name={cert.name} id={cert.id} url={cert.url} date={cert.date} owner={cert.owner} username={cert.username} />
 	);
 
 	useEffect(() => {

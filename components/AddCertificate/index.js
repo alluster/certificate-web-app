@@ -105,7 +105,8 @@ const AddCertificate = () => {
 					name: name,
 					date: Date.now() , 
 					url: url || null,
-					owner: context.user.sub
+					owner: context.user.sub,
+					username: context.user.nickname
 				}	
 			})
 			.then(setToggle(false))

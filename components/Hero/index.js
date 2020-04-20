@@ -83,7 +83,8 @@ const Hero = ({title, ingress, image, children}) => {
 Hero.propTypes = {
     title: PropTypes.string,
     ingress: PropTypes.string,
-    image: PropTypes.string
+	image: PropTypes.string,
+	children: PropTypes.any
 
  };
 

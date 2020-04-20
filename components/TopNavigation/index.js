@@ -42,64 +42,65 @@ const Logo = styled.img `
 const TopNavigation = ({ className }) => {
 	const context = useContext(AppContext)  
     return(
-            <NavContainer className={className} >
+		<NavContainer className={className} >
+			<Gx col={2}>
+				<Link href="/">
+					<a>
+						<Logo src={LOGO_IMG} alt="Certificate me" />
+					</a>
+				</Link>                
+			</Gx>
+	
 
-                <Gx col={2}>
-                    <Link href="/">
-                        <a>
-                        	<Logo src={LOGO_IMG} alt="Certificate me" />
-                        </a>
-                    </Link>                
-                </Gx>
-        
+		{ Links.map((item, i) => {
+			return (
+				<Gx key={i} col={1}>
+					<Link href={item.link}>
+						<a>
+						<LinkText>{item.name}</LinkText> 
+						</a>
+					</Link>
+				</Gx>
+			)
+		})}
+		{
+			context.isAuthenticated ? (
+				<>   
+					<Gx col={2}>
+						<LinkText onClick={() => context.logout({ returnTo: process.env.AUTHO_RETURN_URL })}>Log out</LinkText>
+					</Gx>
+					<Gx col={1}>
+						<Link href='/profile'>
+							<a>
+								<LinkText>
+									<FontAwesomeIcon icon={faUser} />
+								</LinkText>
+							</a>
 
-            { Links.map((item, i) => {
-                return (
-                    <Gx key={i} col={1}>
-                        <Link href={item.link}>
-                            <a>
-                            <LinkText>{item.name}</LinkText> 
-                            </a>
-                        </Link>
-                    </Gx>
-                )
-			})}
-                    {
-            context.isAuthenticated ? (
-                <>   
-                    <Gx col={2}>
-                        <LinkText onClick={() => context.logout({ returnTo: process.env.AUTHO_RETURN_URL })}>Log out</LinkText>
-                    </Gx>
-                    <Gx col={1}>
-                        <Link href='/profile'>
-                            <a>
-                                <LinkText>
-                                    <FontAwesomeIcon icon={faUser} />
-                                </LinkText>
-                            </a>
-
-                        </Link>
-                    </Gx>
-              </>
-            ) : (
+						</Link>
+					</Gx>
+				</>
+			)
+			:
+			(
 				<>   
 					<Gx col={2}>
 						<LinkText onClick={() => context.login({ returnTo: process.env.AUTHO_RDIRECT_URI })}>Sign Up</LinkText>
 					</Gx>
 					<Gx col={1}>
 						<LinkText>
-							<FontAwesomeIcon  onClick={() => context.login({ returnTo: process.env.AUTHO_RDIRECT_URI })} icon={faSignInAlt} />
+							<FontAwesomeIcon onClick={() => context.login({ returnTo: process.env.AUTHO_RDIRECT_URI })} icon={faSignInAlt} />
 						</LinkText>
 					</Gx>
-		  		</>
-            )
-          }
-            </NavContainer>        
+				</>
+			)
+		}
+	</NavContainer>        
             
     );
 };
 TopNavigation.propTypes = {
     className: PropTypes.string
- };
+};
 
 export default TopNavigation;

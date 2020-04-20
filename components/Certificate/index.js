@@ -5,6 +5,17 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import PropTypes from 'prop-types';
 import { withRouter } from 'next/router';
 
+const Content = styled.div `
+	text-align: center;
+`
+const H3 = styled.h3 `
+	font-weight: 400;
+	margin: 30px;
+`
+const H2 = styled.h2 `
+	font-weight: 400;
+	margin: 30px;
+`
 
 const Button = styled.button`
 	background-color: ${props => props.theme.colors.primary};
@@ -53,24 +64,26 @@ const Certificate = (props) => {
 		
 				{
 					data ? 
-					<div>
+					<Content>
 						<h1>Content Certificate</h1>
+						<H2>With this certificate it is declared that the content on a webservice is created by {name}.</H2>
+						<p>To verify the certification, please check that the description bellow matches the origin where the certification has been used.</p>
+						<H3>Certificate description: {data.name || "-" }</H3> 
 						<p>Certificate Owner: {name || "-" }</p> 
-
 						<p>Certificate id: {data.id || "-" }</p> 
 						<p>Creation date: {data.date || "-" }</p>
 						<p>Owner id: {data.owner || "-" }</p>  
-						<p>Certificate name: {data.name || "-" }</p> 
 						<p>Certificate url to content: {data.url || "-" }</p>
 						<h3>
 							{copyMessage}
 						</h3>
+
 						<CopyToClipboard text={CertificationUrl}
 							onCopy={() => CopyMessage()}
 						>
 							<Button>Copy Certification</Button>
 						</CopyToClipboard>
-					</div>
+					</Content>
 					: 
 					<h3>{context.loadingMessage}</h3>
 				}	

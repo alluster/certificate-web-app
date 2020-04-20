@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled, { css } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronDown, faBookmark } from '@fortawesome/free-solid-svg-icons'
+import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link';
 import Gx from '@tgrx/gx';
 import PropTypes from 'prop-types';
@@ -23,15 +23,7 @@ const AccordionContainer = styled.div `
 	
 `;
     
-const AccordionContent = styled.div `
-	background-color: white;
-	display: none;
-	${props => {
-		if (props.open) return css`
-			display: block;
-		`;
-	}};
-`;
+
 
 
 const Content = styled.div`
@@ -68,27 +60,20 @@ const Button = styled.button`
 `;
 
 const Accordion = (props) => {
-	const [toggle, setToggle] = useState(false)
 	return(
-		<AccordionContainer onClick={ () => setToggle(!toggle)} open={toggle}>
+		<AccordionContainer 
+		// onClick={ () => setToggle(!toggle)} open={toggle}
+		>
             <Content>
-                <Gx col={2} breakpoint={300}>
+                <Gx col={1} breakpoint={300}>
 					<FontAwesomeIcon icon={faBookmark} />
 
                 </Gx>
-                <Gx col={3} breakpoint={300} style={{"paddingLeft": "20px"}}>
-                    <Label>Certificate name</Label>
-                    <Mark>{props.name || "-"}</Mark>
+                <Gx col={6} breakpoint={300} style={{"paddingLeft": "20px"}}>
+                    <Label>Description</Label>
+                    <Mark>{props.description || "-"}</Mark>
                 </Gx>
-                <Gx col={3} >
-                    <Label>ID</Label>
-					<Mark>
-						<Link href={`/certification?id=${props.id}`} >
-							<a>{props.id}</a>
-						</Link>
-					
-					</Mark>
-                </Gx>
+                
 				<Gx col={3} >
 					<Mark>
 						<Link href={`/certification?id=${props.id}`} >
@@ -97,13 +82,9 @@ const Accordion = (props) => {
 					
 					</Mark>
                 </Gx>
-                <Gx col={1}>
-                    <h5 style={{"color":"orange"}} >
-                        <FontAwesomeIcon icon={faChevronDown} />
-                    </h5>
-                </Gx>
+                
             </Content>
-            <AccordionContent open={toggle}>
+            {/* <AccordionContent open={toggle}>
                 <Content>
                     <Gx col={6} breakpoint={300} style={{"paddingLeft":"20px"}}>
                         <Label>Date Added</Label>
@@ -118,15 +99,15 @@ const Accordion = (props) => {
                         </Link>
                     </Gx>
                 </Content>
-            </AccordionContent>
+            </AccordionContent> */}
         </AccordionContainer>
     )
 }
 Accordion.propTypes = {
-	name: PropTypes.string,
+	description: PropTypes.string,
 	url: PropTypes.string,
 	id: PropTypes.string,
 	date: PropTypes.number,
-	owner: PropTypes.string
+	owner: PropTypes.string,
  };
 export default Accordion;

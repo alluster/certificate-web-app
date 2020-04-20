@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { AppContext } from  '../../context/Context';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus, faWindowClose } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons'
 import Gx from '@tgrx/gx';
 
 
@@ -38,8 +38,7 @@ const Label = styled.h5`
 	display: block;
 	transition: 0.2s;
 	font-size: 12px;
-	color: gray;
-	font-weight: 300;
+	font-weight: 400;
 `;
 
 const Input = styled.input`
@@ -54,8 +53,10 @@ const Input = styled.input`
 	transition: border-color 0.2s;
   
 	::placeholder {
-		color: transparent;
-	  
+		color: gray;
+		font-size: 10px;
+		font-weight: 300;
+		font-style: italic;	  
 	}
   
 	
@@ -82,10 +83,10 @@ const SubmitButton = styled.button `
 
 const AddCertificate = () => {
 	const initialState = {
-		name: "",
 		url: "",
+		descripion: ""
 	}
-	const [{ name, url },setState] = useState(initialState);
+	const [{ url, description },setState] = useState(initialState);
 	const context = useContext(AppContext)  
 	const [toggle, setToggle] = useState(false)
 	const inputChange = e => {
@@ -102,7 +103,7 @@ const AddCertificate = () => {
 			return await axios.get('/addcertification',  {
 				params: {
 					id: generateId(),
-					name: name,
+					description: description,
 					date: Date.now() , 
 					url: url || null,
 					owner: context.user.sub,
@@ -123,9 +124,9 @@ const AddCertificate = () => {
 				!toggle ? 
 					<ContentClosed onClick={ () => setToggle(!toggle)} open={toggle}>
 						<Gx col={10} breakpoint={300} >
-							<h2>Create new certification</h2>
+							<h2>Create a new certificate</h2>
 						</Gx>	
-						<Gx col={1}>
+						<Gx col={1}breakpoint={300}>
 							<h2  >
 								<FontAwesomeIcon  icon={faPlus} />
 							</h2>
@@ -136,21 +137,21 @@ const AddCertificate = () => {
 			}
             <ContentOpen open={toggle}>
 				<form onSubmit={handleSubmit} >
-
-					<Gx col={6}>
-						<Label>Certification name</Label>
-						<Input placeholder="Name for the certification" name="name" value={name} onChange={inputChange} type="text" />
-					</Gx>
-					<Gx col={5}>
-						<Label>Link to content</Label>
-						<Input placeholder="Url for the certification" name="url" value={url} onChange={inputChange} type="text" />
-					</Gx>
-					<Gx col={1}>
-						<h2>
-							<FontAwesomeIcon icon={faWindowClose} onClick={ () => setToggle(!toggle)} />
+					<Gx col={12}>
+						<h2 style={{ textAlign: "right"}}>
+							<FontAwesomeIcon icon={faTimes} onClick={ () => setToggle(!toggle)} />
 						</h2>
 					</Gx>
-					<SubmitButton onClick={e => handleSubmit(e)}>Create certification</SubmitButton>
+					<Gx col={12}>
+						<Label>Briefly describe the usage of this certificate</Label>
+						<Input placeholder="Facebook post.., This is a tweet.., I was interviewed.. etc" name="description" value={description} onChange={inputChange} type="text" />
+					</Gx>
+					<Gx col={12}>
+						<Label>Provide a link to content where certificate is used</Label>
+						<Input placeholder="www.twitter.com, www.facebook.com, slack etc." name="url" value={url} onChange={inputChange} type="text" />
+					</Gx>
+					
+					<SubmitButton onClick={e => handleSubmit(e)}>Create certificate</SubmitButton>
 				</form>
             </ContentOpen>
         </div>

@@ -15,13 +15,19 @@ const Head = ({ title, ogImage, route }) => {
     route = route || fallbackRoute;
     if (!route.startsWith('/')) {
         route = '/' + route;
-    }
+	}
+	
+	function reformatName(y){
+		return y.replace('.', ' ').replace(/(?:^|\s)\S/g, a => a.toUpperCase());
+	}
+	const name = reformatName(title)
 
+	
     return (
         <NextHead>
             
             <meta property="og:url" content={SITE_URL + route || SITE_URL} />
-            <meta property="og:title" content={title || fallbackTitle} />
+            <meta property="og:title" content={`This content was published by ${name}` || fallbackTitle} />
             <meta property="og:type" content="website" />
             <meta property="og:description" content={description || metaDescription} />
             <meta name="description" content={description || metaDescription} />

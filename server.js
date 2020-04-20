@@ -51,7 +51,7 @@ app.prepare().then(() => {
 		console.log(req.query)
 		pool.getConnection(function(err, connection) {
 			if (err) throw err; 
-			query = SQL`INSERT INTO certifications (id, name, date, owner, url, username ) VALUES (${req.query.id}, ${req.query.name},${req.query.date},${req.query.owner},${req.query.url}, ${req.query.username})`
+			query = SQL`INSERT INTO certifications (id, name, date, owner, url, username ) VALUES (${req.query.id}, ${req.query.description},${req.query.date},${req.query.owner},${req.query.url}, ${req.query.username})`
 			connection.query(
 				query,
 				function (error, results, fields) {

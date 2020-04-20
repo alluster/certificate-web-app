@@ -16,8 +16,9 @@ const Profile = () => {
 	return(
 		<Layout title="Profile" >
 			<Container>
-				<p>Profile</p>
-				<h1>{reformatName(context.user.nickname)}</h1>
+				<h3>Profile</h3>
+				<p>Create new certificate and post it into your content in web to prove that it's yours</p>
+				<h2>{reformatName(context.user.nickname)}</h2>
 				<AddCertificate />
 				<CertificationsList />
 			</Container>

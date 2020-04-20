@@ -6,14 +6,15 @@ import Certificate from '../components/Certificate';
 import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 
-const Certification = (props, router) => {
+const Certification = (props) => {
 	useEffect(() => {
+		console.log(props.router)
 	}, []);
 	return(
 			<Layout 
-				title={router.asPath}
+				title={props.router.asPath}
 				// description={router.query.id}
-				route={router.asPath}
+				route={props.router.asPath}
 			>
 			
 				<Container>

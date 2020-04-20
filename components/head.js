@@ -9,7 +9,8 @@ const fallbackOgImage = SITE_URL + '/fallbackOgImage.jpg';
 const fallbackOgImageSecure = SITE_URL_SECURE + '/fallbackOgImage.jpg';
 const metaDescription = 'Certificate your content in web';
 const fallbackTitle = 'This content has been certified by Certify Me';
-const Head = ({ title, ogImage, route, description }) => {
+const description = "This content is has a certificate from Certify Me -service. You can view more information about the status of this certificate by clicking provided link"
+const Head = ({ title, ogImage, route }) => {
     route = route || fallbackRoute;
     if (!route.startsWith('/')) {
         route = '/' + route;

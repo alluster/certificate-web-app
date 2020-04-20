@@ -7,12 +7,17 @@ import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 
 const Certification = (props) => {
+	function reformatName(y){
+		return y.replace('.', ' ').replace(/(?:^|\s)\S/g, a => a.toUpperCase());
+	}
+	const name = reformatName(props.certification.username)
+	
 	useEffect(() => {
 		console.log(props.router)
 	}, []);
 	return(
 			<Layout 
-				title={`This content was published by ${props.certification.username}`}
+				title={`This content was published by ${name}`}
 				// description={router.query.id}
 				
 				route={props.router.asPath}

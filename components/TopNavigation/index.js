@@ -85,11 +85,11 @@ const TopNavigation = ({ className }) => {
 			(
 				<>   
 					<Gx col={2}>
-						<LinkText onClick={() => context.login({ returnTo: process.env.AUTHO_RDIRECT_URI })}>Sign Up</LinkText>
+						<LinkText onClick={() => context.login({ returnTo: process.env.AUTHO_REDIRECT_URI })}>Sign Up</LinkText>
 					</Gx>
 					<Gx col={1}>
 						<LinkText>
-							<FontAwesomeIcon onClick={() => context.login({ returnTo: process.env.AUTHO_RDIRECT_URI })} icon={faSignInAlt} />
+							<FontAwesomeIcon onClick={() => context.login({ returnTo: process.env.AUTHO_REDIRECT_URI })} icon={faSignInAlt} />
 						</LinkText>
 					</Gx>
 				</>

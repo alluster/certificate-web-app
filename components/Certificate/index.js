@@ -58,7 +58,6 @@ const Certificate = (props) => {
 
 	useEffect(() => {
 		context.LoadingContent()
-		console.log(context.user)
 
 	}, []);
 

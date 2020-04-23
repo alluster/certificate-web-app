@@ -30,7 +30,6 @@ app.prepare().then(() => {
     }));
    
 	server.get('/getcertification/:id', (req, res) => {
-		console.log(req.query)
         pool.getConnection(function(err, connection) {
 
 			if (err) throw err; 
@@ -39,7 +38,6 @@ app.prepare().then(() => {
 				query,
 				function (error, results, fields) {
 					res.send(results)
-					console.log(results)
 					connection.release();
 					if (error) throw error;
 				}
@@ -48,7 +46,6 @@ app.prepare().then(() => {
 	})
 	
 	server.get('/addcertification', (req, res) => {
-		console.log(req.query)
 		pool.getConnection(function(err, connection) {
 			if (err) throw err; 
 			query = SQL`INSERT INTO certifications (id, description, date, owner, url, username ) VALUES (${req.query.id}, ${req.query.description},${req.query.date},${req.query.owner},${req.query.url}, ${req.query.username})`

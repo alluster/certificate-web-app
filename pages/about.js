@@ -6,7 +6,7 @@ import Hero from '../components/Hero';
 
 
 const About = () => {
-	const pageTitle = "You create the best content to the web."
+	const pageTitle = "Create certifications to your work."
     const pageIngress = "No one can be sure your content is created by you! With Certify you can add a certificate to your work that ensures it’s yours. "
    
 

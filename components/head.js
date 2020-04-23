@@ -4,7 +4,7 @@ import { string } from 'prop-types';
 
 const fallbackRoute = '/';
 const SITE_URL_SECURE = 'https://certificate-me.herokuapp.com';
-const SITE_URL = 'http://certificate-me.herokuapp.com';
+const SITE_URL = 'https://certificate-me.herokuapp.com';
 const fallbackOgImage = SITE_URL + '/fallbackOgImage.jpg';
 const fallbackOgImageSecure = SITE_URL_SECURE + '/fallbackOgImage.jpg';
 const metaDescription = 'Certificate your content in web';

@@ -42,7 +42,7 @@ const Certificate = (props) => {
 	const [ copyMessage, setCopyMessage ] = useState()
 	const data = props.cert
 	const CertificationUrl = process.env.AUTHO_RETURN_URL + props.router.asPath
-
+	const name = reformatName(data.username)
 	const CopyMessage = () => {
 		setCopyMessage("Certification copied. Go to your publication and paste certification there") 
 		setTimeout(() => {
@@ -50,13 +50,16 @@ const Certificate = (props) => {
 		}, 4000)
 	}
 
-	function reformatName(y){
-		return y.replace('.', ' ').replace(/(?:^|\s)\S/g, a => a.toUpperCase());
+
+	function reformatName(y) {
+		return y.replace('.', ' ').replace(/(?:^|\s)\S/g, a => a.toUpperCase())
 	}
-	const name = reformatName(data.username)
+	
 
 	useEffect(() => {
 		context.LoadingContent()
+		console.log(context.user)
+
 	}, []);
 
 	return(
@@ -68,7 +71,7 @@ const Certificate = (props) => {
 						<h1>Content Certificate</h1>
 						<H2>With this certificate it is declared that the content on a webservice is created by {name}.</H2>
 						<p>To verify the certification, please check that the description bellow matches the origin where the certification has been used.</p>
-						<H3>Certificate description: {data.name || "-" }</H3> 
+						<H3>Certificate description: {data.description || "-" }</H3> 
 						<p>Certificate Owner: {name || "-" }</p> 
 						<p>Certificate id: {data.id || "-" }</p> 
 						<p>Creation date: {data.date || "-" }</p>
@@ -77,7 +80,6 @@ const Certificate = (props) => {
 						<h3>
 							{copyMessage}
 						</h3>
-
 						<CopyToClipboard text={CertificationUrl}
 							onCopy={() => CopyMessage()}
 						>

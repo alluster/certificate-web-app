@@ -8,22 +8,24 @@ import fetch from 'isomorphic-unfetch';
 
 const Certification = (props) => {
 	
+	function reformatName(y){
+		if(y === null){ return "undefined" }
+		else return y.replace('.', ' ').replace(/(?:^|\s)\S/g, a => a.toUpperCase());
+	}
+	
 
 	useEffect(() => {
-		console.log(props.router)
 	}, []);
 	return(
-			<Layout 
-				title={props.certification.username }
-				// description={router.query.id}
-				
-				route={props.router.asPath}
-			>
-			
-				<Container>
-					<Certificate cert={props.certification}/>
-				</Container>
-			</Layout>		
+		<Layout 
+			title={reformatName(props.certification.username)}				
+			route={props.router.asPath}
+		>
+		
+			<Container>
+				<Certificate cert={props.certification}/>
+			</Container>
+		</Layout>		
 	)
 }
 

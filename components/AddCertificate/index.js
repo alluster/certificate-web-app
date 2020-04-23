@@ -84,7 +84,7 @@ const SubmitButton = styled.button `
 const AddCertificate = () => {
 	const initialState = {
 		url: "",
-		descripion: ""
+		description: ""
 	}
 	const [{ url, description },setState] = useState(initialState);
 	const context = useContext(AppContext)  

@@ -10,8 +10,10 @@ const Profile = () => {
 
 	const context = useContext(AppContext)  
 	function reformatName(y){
-		return y.replace('.', ' ').replace(/(?:^|\s)\S/g, a => a.toUpperCase());
+		if(y === null){ return "undefined" }
+		else return y.replace('.', ' ').replace(/(?:^|\s)\S/g, a => a.toUpperCase());
 	}
+	
 
 	return(
 		<Layout title="Profile" >

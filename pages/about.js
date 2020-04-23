@@ -7,7 +7,7 @@ import Hero from '../components/Hero';
 
 const About = () => {
 	const pageTitle = "You create the best content to the web."
-    const pageIngress = "Someone checking it out cannot be sure your content is created by You! With CertificateMe you can add a tag to your work that ensures it’s yours. "
+    const pageIngress = "No one can be sure your content is created by you! With Certify you can add a certificate to your work that ensures it’s yours. "
    
 
 	return(

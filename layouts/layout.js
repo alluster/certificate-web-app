@@ -140,11 +140,11 @@ const Layout = ({title, description, route, children}) => {
 					route={route}
 				>
 					<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-                    <meta property="og:site_name" content="Certificate Me" />
+                    <meta property="og:site_name" content="Certify" />
                     <link rel="icon" type="image/png" href="/favicon.ico" sizes="48x48" />
 					<meta charset="UTF-8" />
 					<meta name="keywords" content="Content,Certificate,Certifications,Free certification,"/>
-					<meta name="author" content="Certificate me"/>
+					<meta name="author" content="Certify"/>
                     <link
                         href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,700"
                         rel="stylesheet"

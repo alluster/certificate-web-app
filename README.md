@@ -1,6 +1,6 @@
 # Certificate.me
 
-Certificate Me service allows users to create certifications for their web content such as articles and blog postings.
+Certify service allows users to create certifications for their web content such as articles and blog postings.
 
 ## Installation
 

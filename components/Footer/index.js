@@ -65,7 +65,7 @@ const Logo = styled.img`
 
 
 
-const disclaimer = "Certificate.com is a service for content creators to tag their work in web so that it can be easily traced an verified by viewers. This creates transparency and repels fraud."
+const disclaimer = "Certify.com is a service for content creators to tag their work in web so that it can be easily traced an verified by viewers. This creates transparency and repels fraud."
 const Footer = () => {
     return(
         <FooterContent>
@@ -73,7 +73,7 @@ const Footer = () => {
                 <Gx col={6}>
                     <Column>
                         <ColumnHigh>
-                            <Logo src="/logo.svg" alt="Certificate me"/>
+                            <Logo src="/logo.svg" alt="Certify"/>
                             <h4>info@certificate.com</h4>
                             {/* <span>Anna tukesi projektille. <Link href="https://shop.spreadshirt.fi/personaldatafi/">Osta huppari verkkokaupasta</Link></span> */}
                         </ColumnHigh>
@@ -88,7 +88,7 @@ const Footer = () => {
                         <ColumnHigh>
                         </ColumnHigh>
                         <ColumnLowRight >
-                            © 2020 Certificate.com
+                            © 2020 Certify.com
                         </ColumnLowRight>
                     </Column>
                 </Gx>

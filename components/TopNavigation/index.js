@@ -46,7 +46,7 @@ const TopNavigation = ({ className }) => {
 			<Gx col={2}>
 				<Link href="/">
 					<a>
-						<Logo src={LOGO_IMG} alt="Certificate me" />
+						<Logo src={LOGO_IMG} alt="Certify me" />
 					</a>
 				</Link>                
 			</Gx>

@@ -47,7 +47,7 @@ const Provider = ({children}) => {
 	const LoadingContent = () => {
 		setLoadingMessage("Loading content...") 
 		setTimeout(() => { 
-			setLoadingMessage("Unfortunatelly something went wrong. We are working on this. Please return to previous page and try again")  
+			setLoadingMessage("Unfortunately something went wrong. We are working on this. Please return to previous page and try again")  
 		}, 8000)
 		setTimeout(() => {
 			setLoadingMessage("")  

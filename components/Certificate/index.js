@@ -71,11 +71,10 @@ const Certificate = (props) => {
 						<H2>With this certificate it is declared that the content on a webservice is created by {name}.</H2>
 						<p>To verify the certification, please check that the description bellow matches the origin where the certification has been used.</p>
 						<H3>Certificate description: {data.description || "-" }</H3> 
-						<p>Certificate Owner: {name || "-" }</p> 
-						<p>Certificate id: {data.id || "-" }</p> 
 						<p>Creation date: {data.date || "-" }</p>
-						<p>Owner id: {data.owner || "-" }</p>  
 						<p>Certificate url to content: {data.url || "-" }</p>
+						<p>Certificate id: {data.id || "-" }</p> 
+						
 						<h3>
 							{copyMessage}
 						</h3>

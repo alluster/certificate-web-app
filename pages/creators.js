@@ -14,8 +14,6 @@ const Creators = () => {
 			<Layout title="About" >
 				<Container>
                     <Hero title={pageTitle} ingress={pageIngress} />
-                    <h3>Would you like to be certified as a Creator and proof your work</h3>
-                    <p>We are still building our service but you can contact us for more details on how to join. info@certificate.com</p>
 				</Container>
 			</Layout>
 		

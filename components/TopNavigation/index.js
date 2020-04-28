@@ -29,9 +29,12 @@ const NavContainer = styled.div`
 `;
 
 const Logo = styled.img `
-    width: 80%;
-    object-fit: cover;
-    padding: 10px;
+    width: 100%;
+	max-width: 200px;
+	height: auto;
+	object-fit: cover;
+	padding: 10px;
+	
     @media (max-width: ${props => props.theme.screenSize.tablet}) {
         width: 100px;
      }

@@ -35,7 +35,7 @@ const Home = () => {
 			<Layout title="Home" >
 				<Container>
 					<Hero title={pageTitle} ingress={pageIngress} image={heroImage}>
-						<p>This is where our certificates can help. By registering and creating an certificate for your content - you can make sure that everyone know what content is created by you and what is not.</p>
+						<p>This is where our certificates can help. By registering and creating an certificate for your content - you can make sure that everyone knows what content is created by you and what is not.</p>
 						<SignInButton onClick={() => context.login({ appState: { returnTo: process.env.AUTHO_REDIRECT_URI } })} >Create a certificate</SignInButton>
 
 					</Hero>

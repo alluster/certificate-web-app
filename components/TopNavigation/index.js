@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import Gx from '@tgrx/gx';
 import PropTypes from 'prop-types';
-import { Links } from '../links';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faSignInAlt } from '@fortawesome/free-solid-svg-icons'
 import { AppContext } from  '../../context/Context'
@@ -55,7 +54,7 @@ const TopNavigation = ({ className }) => {
 			</Gx>
 	
 
-		{ Links.map((item, i) => {
+		{/* { Links.map((item, i) => {
 			return (
 				<Gx key={i} col={1}>
 					<Link href={item.link}>
@@ -65,7 +64,10 @@ const TopNavigation = ({ className }) => {
 					</Link>
 				</Gx>
 			)
-		})}
+		})} */}
+		<Gx col={7}>
+		</Gx>
+		
 		{
 			context.isAuthenticated ? (
 				<>   

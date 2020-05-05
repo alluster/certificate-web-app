@@ -15,7 +15,8 @@ const GlobalStyle = createGlobalStyle`
         padding: 0px;
         max-width: 100%;
         color: white;
-        height: 100%;
+		height: 100%;
+		font-size: 16px;
 		font-family: "Montserrat", Arial, sans-serif;
 		font-display: swap;
     }

@@ -1,7 +1,5 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link';
 import Gx from '@tgrx/gx';
 import PropTypes from 'prop-types';
@@ -12,7 +10,8 @@ const AccordionContainer = styled.div `
 	z-index: 100000;
     max-width: 100%;
     height: auto;
-    padding: 10px;
+	padding: 10px;
+	padding-left: 50px;
     border-radius: 8px;
     margin-top: 30px;
     ${props => {
@@ -39,25 +38,25 @@ const Mark = styled.h4`
     font-weight: 600;
 `;
 
-const Button = styled.button`
-	background-color: ${props => props.theme.colors.primary};
-	color: white;
-	-webkit-text-fill-color: white;
-	height: 40px; border-radius: 20px;
-	text-align: center;
-	line-height: 40px;
-	font-weight: bold;
-	font-size: 20px;
-	padding-left: 20px;
-	padding-right: 20px;
-	width: auto;
-	:hover {
-		cursor: pointer
-	}
-	@media (max-width: ${props => props.theme.screenSize.tablet}) {
-		width: 60%;
-	}
-`;
+// const Button = styled.button`
+// 	background-color: ${props => props.theme.colors.primary};
+// 	color: white;
+// 	-webkit-text-fill-color: white;
+// 	height: 40px; border-radius: 20px;
+// 	text-align: center;
+// 	line-height: 40px;
+// 	font-weight: bold;
+// 	font-size: 20px;
+// 	padding-left: 20px;
+// 	padding-right: 20px;
+// 	width: auto;
+// 	:hover {
+// 		cursor: pointer
+// 	}
+// 	@media (max-width: ${props => props.theme.screenSize.tablet}) {
+// 		width: 60%;
+// 	}
+// `;
 
 const Accordion = (props) => {
 	return(
@@ -65,24 +64,13 @@ const Accordion = (props) => {
 		// onClick={ () => setToggle(!toggle)} open={toggle}
 		>
             <Content>
-                <Gx col={1} breakpoint={300}>
-					<FontAwesomeIcon icon={faBookmark} />
+				<Link href={`/certification?id=${props.id}`} >
 
-                </Gx>
-                <Gx col={6} breakpoint={300} style={{"paddingLeft": "20px"}}>
-                    <Label>Description</Label>
-                    <Mark>{props.description || "-"}</Mark>
-                </Gx>
-                
-				<Gx col={3} >
-					<Mark>
-						<Link href={`/certification?id=${props.id}`} >
-							<Button>View Certificate</Button>
-						</Link>
-					
-					</Mark>
-                </Gx>
-                
+					<Gx col={12} breakpoint={300} style={{"paddingLeft": "20px"}}>
+						<Label>Certificate</Label>
+						<Mark>{props.description || "-"}</Mark>
+					</Gx>
+				</Link>
             </Content>
             {/* <AccordionContent open={toggle}>
                 <Content>

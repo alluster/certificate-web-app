@@ -2,38 +2,43 @@ import React from 'react';
 import styled from 'styled-components';
 import Container from '../Container';
 import PropTypes from 'prop-types';
+import Gx from '@tgrx/gx';
 
 const ImageContainer = styled.div`
-    max-width: 800px;
+	max-width: 800px;
+	padding: 50px;
     margin: auto;
     @media (max-width: ${props => props.theme.screenSize.tablet}) {
-        max-width: 100%;
+		max-width: 100%;
+		padding: 0px;
     }
 
     `
 
 const Title = styled.h1`
-    text-align: center;
+    text-align: left;
     color: white;
     font-weight: 600;
-    margin-top: 50px;
-    font-size:  ${props => props.theme.fontSize.h3}
+	margin-top: 50px;
+	font-size: 80px;
     @media (max-width: ${props => props.theme.screenSize.tablet}) {
-        font-size: 24px;
+        font-size: 34px;
+		text-align: center;
 
 
      }
 `;
 
 const Ingress = styled.p `
-    font-size:  ${props => props.theme.fontSize.h5};
+    font-size: 34px;
     color: white;
     font-weight: 400;
-    text-align: center;
+    text-align: left;
     margin-top: 50px;
     @media (max-width: ${props => props.theme.screenSize.tablet}) {
-        font-size: 14px;
+        font-size: 24px;
         margin-top: 20px;
+		text-align: center;
 
      }
 `;
@@ -48,7 +53,14 @@ const HeroStyled = styled.div`
 
      }
 `;
+const Content = styled.div `
+	 text-align: left;
+	 @media (max-width: ${props => props.theme.screenSize.tablet}) {
+		text-align: center;
 
+     }
+
+`;
 
 
 
@@ -56,24 +68,31 @@ const Hero = ({title, ingress, image, children}) => {
     return(
         <HeroStyled>
             <Container>
-                <Title>
-					{title}
-					<div>
+				<Gx col={6} breakpoint={900}>
+					<Title>
+						{title}
+					
+					</Title>
+		
+					<Ingress>
+					{ingress}
+					</Ingress>
+					<Content>
 						{children}
-					</div>
-                </Title>
-	
-				<Ingress>
-                   {ingress}
-                </Ingress>
-				{
-					image ? 
-						<ImageContainer>
-							<img src={image} alt="Hero image" /> 
-						</ImageContainer>
-						:
-						null
-				}
+					</Content>
+				</Gx>
+                
+				<Gx col={6} breakpoint={900}>
+					{
+						image ? 
+							<ImageContainer>
+								<img src={image} alt="Hero image" /> 
+							</ImageContainer>
+							:
+							null
+					}
+				</Gx>
+
             </Container>
         </HeroStyled>
         

@@ -28,15 +28,16 @@ const SignInButton = styled.button `
 const Home = () => {
 	const context = useContext(AppContext)
 
-	const pageTitle = "In a world of robots and bots you cannot be sure what is real.";
-    const pageIngress = "In todays web we need more assurance about the accuracy of content we consume. It might be news article or a video clip, it is important that viewer can check the origin of your content and trace it to your certified profile in Certificate.com.";
+	const pageTitle = "We need facts more than ever!";
+    const pageIngress = "When browsing the web - it's impossible to know what content is fake.";
 	const heroImage= "./how-it-works.svg"
 		return(
 			<Layout title="Home" >
 				<Container>
 					<Hero title={pageTitle} ingress={pageIngress} image={heroImage}>
-						<SignInButton onClick={() => context.login({ appState: { returnTo: process.env.AUTHO_REDIRECT_URI } })} >Sign Up Now</SignInButton>
-						<p>Start ensuring your content with certificates - let the world know your content.</p>
+						<p>This is where our certificates can help. By registering and creating an certificate for your content - you can make sure that everyone know what content is created by you and what is not.</p>
+						<SignInButton onClick={() => context.login({ appState: { returnTo: process.env.AUTHO_REDIRECT_URI } })} >Create a certificate</SignInButton>
+
 					</Hero>
 				</Container>
 			</Layout>

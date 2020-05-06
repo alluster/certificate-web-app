@@ -4,18 +4,16 @@ import styled from 'styled-components';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import PropTypes from 'prop-types';
 import { withRouter } from 'next/router';
+import Hero from '../Hero';
 
 const Content = styled.div `
 	text-align: center;
-`
+`;
 const H3 = styled.h3 `
 	font-weight: 400;
 	margin: 30px;
-`
-const H2 = styled.h2 `
-	font-weight: 400;
-	margin: 30px;
-`
+`;
+
 
 const Button = styled.button`
 	background-color: ${props => props.theme.colors.primary};
@@ -60,24 +58,27 @@ const Certificate = (props) => {
 		context.LoadingContent()
 
 	}, []);
-
+	const pageTitle = "Content Certificate";
+    const pageIngress = `With this certificate it is declared that the content on a web service is created by ${name}`;
+	const heroImage= "./finger-certificate.png"
 	return(
 			<div>
-		
 				{
 					data ? 
 					<Content>
-						<h1>Content Certificate</h1>
-						<H2>With this certificate it is declared that the content on a webservice is created by {name}.</H2>
-						<p>To verify the certification, please check that the description bellow matches the origin where the certification has been used.</p>
+						<Hero title={pageTitle} ingress={pageIngress} image={heroImage}>
+							<Button onClick={() => context.login({ appState: { returnTo: process.env.AUTHO_REDIRECT_URI } })} >Create a new certificate</Button>
+							<h3>
+								{copyMessage}
+							</h3>	
+						</Hero>
+						<h2>To verify the certification, please check that the description bellow matches the origin where the certification has been used.</h2>
 						<H3>Certificate description: {data.description || "-" }</H3> 
-						<p>Creation date: {data.date || "-" }</p>
-						<p>Certificate url to content: {data.url || "-" }</p>
-						<p>Certificate id: {data.id || "-" }</p> 
+						<H3>Creation date: {data.date || "-" }</H3>
+						<H3>Certificate url to content: {data.url || "-" }</H3>
+						<H3>Certificate id: {data.id || "-" }</H3> 
 						
-						<h3>
-							{copyMessage}
-						</h3>
+						
 						<CopyToClipboard text={CertificationUrl}
 							onCopy={() => CopyMessage()}
 						>

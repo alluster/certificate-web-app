@@ -9,8 +9,7 @@ const ImageContainer = styled.div`
 	padding: 50px;
     margin: auto;
     @media (max-width: ${props => props.theme.screenSize.tablet}) {
-		max-width: 100%;
-		padding: 0px;
+		display: none
     }
 
     `
